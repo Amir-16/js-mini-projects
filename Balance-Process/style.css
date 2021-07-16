@@ -7,7 +7,6 @@ body{
 .submit{
 
     
-    grid-area: auto;
     margin-top: 40px;
     padding: 50px;
     border-radius: 40px;
@@ -18,18 +17,32 @@ body{
 #transaction-area{
 
     display: none;
+    
 }
 .status{
     margin: 0 20px;
+    padding: 30px;
+    border-radius: 25px;
+    color: white;
 }
 .deposit{
-    background-color: crimson;
+    background-color:chocolate;
 }
 
 .withdraw{
-    background-color: blue;
+    background-color: crimson;
 }
 
 .balance{
     background-color:darkgreen;
+}
+
+.transaction{
+
+    margin-top: 50px;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 5px 5px 10px black;
+
+
 }

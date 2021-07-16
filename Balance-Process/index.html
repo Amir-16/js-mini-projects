@@ -12,7 +12,8 @@
 <body>
     <!-- login portion -->
         <div id="login-form">
-            <h2 class="text-center">Welcome to Inventory</h2>
+            <h4 class="text-left">Welcome to Inventory</h4>
+            <div class="col-md-6">
             <div class="submit"> 
                 <h4 class="text-left">login form</h4>
                 <input type="email" name="email" id="email" class="form-control" placeholder="Email">
@@ -22,29 +23,49 @@
                 <button id="login" type="submit" class="btn btn-success">Submit</button>
 
             </div>
-
         </div>
+    </div>
         <!-- end login portion -->
             <div id="transaction-area">
 
             <h3 class="text-center">Inventory system</h3>
                     <div class="row">
                         <div class="col-md-4 ">
-                            <div class="div deposit status">
-                            <h5 class="text-white">Deposit</h5>
-                            <h2 class="text-white">৳00</h2>
+                            <div class=" deposit status">
+                            <h5 class="text-white text-center">Deposit</h5>
+                            <h2 class="text-white text-center">৳00</h2>
                         </div>
                         </div>
-                        <div class="col-md-4 withdraw status">
-                            <h5 class="text-white">Withdraw</h5>
-                            <h2 class="text-white"> ৳00</h2>
+                        <div class="col-md-4 ">
+                            <div class="withdraw status">
+                            <h5 class="text-white text-center">Withdraw</h5>
+                            <h2 class="text-white text-center"> ৳00</h2>
                         </div>
-                        <div class="col-md-4 balance status">
-                            <h5 class="text-white">Balance</h5>
-                            <h2 class="text-white">৳00</h2>
+                        </div>
+                        <div class="col-md-4 ">
+                            <div class="balance status">
+                            <h5 class="text-white text-center">Balance</h5>
+                            <h2 class="text-white text-center">৳00</h2>
+                        </div>
                         </div>
                     </div>
+            
+
+            <!-- calculation portion design -->
+
+            <div class="row">
+                <div class="col-md-6 transaction">
+                    <h4>Deposit</h4>
+                    <input type="text" class="form-control" placeholder="deposit your amount">
+                    <button class="btn btn-success">Submit</button>
+                </div>
+                <div class="col-md-6 transaction">
+                    <h4>Withdraw</h4>
+                    <input type="text" class="form-control" placeholder="deposit your amount">
+                    <button class="btn btn-success">Submit</button>
+                </div>
             </div>
+        </div>
 
         <script>
 
