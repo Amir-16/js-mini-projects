@@ -33,7 +33,7 @@
                         <div class="col-md-4 ">
                             <div class=" deposit status">
                             <h5 class="text-white text-center">Deposit</h5>
-                            <h2 class="text-white text-center">৳00</h2>
+                            <h2 class="text-white text-center">৳<span id="showDeposit">00 </span></h2>
                         </div>
                         </div>
                         <div class="col-md-4 ">
@@ -45,7 +45,7 @@
                         <div class="col-md-4 ">
                             <div class="balance status">
                             <h5 class="text-white text-center">Balance</h5>
-                            <h2 class="text-white text-center">৳00</h2>
+                            <h2 class="text-white text-center">৳<span id="showBalance">500 </span></h2>
                         </div>
                         </div>
                     </div>
@@ -56,12 +56,12 @@
             <div class="row">
                 <div class="col-md-6 transaction">
                     <h4>Deposit</h4>
-                    <input type="text" class="form-control" placeholder="deposit your amount">
-                    <button class="btn btn-success">Submit</button>
+                    <input type="text" id="depositAmount" class="form-control" placeholder="deposit your amount">
+                    <button id="depositTK" class="btn btn-success">Submit</button>
                 </div>
                 <div class="col-md-6 transaction">
                     <h4>Withdraw</h4>
-                    <input type="text" class="form-control" placeholder="deposit your amount">
+                    <input type="text" class="form-control" placeholder="withdraw your amount">
                     <button class="btn btn-success">Submit</button>
                 </div>
             </div>
@@ -81,6 +81,43 @@
             
 
             });
+
+            //
+
+            const depositBtn =document.getElementById("depositTK");
+                depositBtn.addEventListener("click",function(){
+                 //   alert('ok');
+
+                    const depositAll = document.getElementById("depositAmount").value;
+                    const depositNumber = parseFloat(depositAll);
+                    
+                    //then we take span id 
+                    // const showDeposit =document.getElementById("showDeposit").innerText;
+                    // const  previousDeposit =parseFloat(showDeposit);
+                    // //save two numbers
+                    // const totalDeposit =depositNumber +previousDeposit;
+
+                    //have to show this total in innerHtml
+
+                    updateSpan("showDeposit",depositNumber);
+
+                    // const showBalance =document.getElementById("showBalance").innerText;
+                    // const balanceNo =parseFloat(showBalance);
+                    // const totalBalance =depositNumber +balanceNo;
+                    
+                    updateSpan("showBalance",depositNumber);
+                    document.getElementById("depositAmount").value ="";
+                    
+            });
+
+
+            function updateSpan(id,depositNumber){
+
+                const showBalance =document.getElementById("showBalance").innerText;
+                const balanceNo = parseFloat(showBalance);
+                const totalBalance =depositNumber +balanceNo;
+                document.getElementById(id).innerText=totalBalance;
+            }
 
         </script>
        
