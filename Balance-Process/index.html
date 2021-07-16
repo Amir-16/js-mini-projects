@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Inventory</title>
+</head>
+<body>
+    <!-- login portion -->
+        <div id="login-form">
+            <h2 class="text-center">Welcome to Inventory</h2>
+            <div class="submit"> 
+                <h4 class="text-left">login form</h4>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                <br>
+                <input type="password" name="password" id="password" placeholder="password" class="form-control">
+                <br>
+                <button id="login" type="submit" class="btn btn-success">Submit</button>
+
+            </div>
+
+        </div>
+        <!-- end login portion -->
+            <div id="transaction-area">
+
+            <h3 class="text-center">Inventory system</h3>
+                    <div class="row">
+                        <div class="col-md-4 ">
+                            <div class="div deposit status">
+                            <h5 class="text-white">Deposit</h5>
+                            <h2 class="text-white">৳00</h2>
+                        </div>
+                        </div>
+                        <div class="col-md-4 withdraw status">
+                            <h5 class="text-white">Withdraw</h5>
+                            <h2 class="text-white"> ৳00</h2>
+                        </div>
+                        <div class="col-md-4 balance status">
+                            <h5 class="text-white">Balance</h5>
+                            <h2 class="text-white">৳00</h2>
+                        </div>
+                    </div>
+            </div>
+
+        <script>
+
+            const  loginBtn =document.getElementById("login");
+            loginBtn.addEventListener("click",function(){
+
+                const loginForm =document.getElementById("login-form");
+                loginForm.style.display ="none";
+
+                const transaction =document.getElementById("transaction-area");
+                transaction.style.display ="block";
+
+            
+
+            });
+
+        </script>
+       
+    
+</body>
+</html>
