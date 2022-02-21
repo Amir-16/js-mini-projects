@@ -12,13 +12,13 @@
 <body>
     <!-- login portion -->
         <div id="login-form">
-            <h4 class="text-left">Welcome to Inventory</h4>
+            <h4 class="text-left text-white">Welcome to Inventory</h4>
             <div class="col-md-6">
             <div class="submit"> 
-                <h4 class="text-left">login form</h4>
-                <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                <h4 class="text-left text-white">login form</h4>
+                <input type="email" name="email" id="email" class="form-control" placeholder="Email" required="">
                 <br>
-                <input type="password" name="password" id="password" placeholder="password" class="form-control">
+                <input type="password" name="password" id="password" placeholder="password" class="form-control" required="">
                 <br>
                 <button id="login" type="submit" class="btn btn-success">Submit</button>
 
@@ -28,23 +28,23 @@
         <!-- end login portion -->
             <div id="transaction-area">
 
-            <h3 class="text-center">Inventory system</h3>
+            <h3 class="text-center text-white">Inventory system</h3>
                     <div class="row">
                         <div class="col-md-4 ">
                             <div class=" deposit status">
-                            <h5 class="text-white text-center">Deposit</h5>
+                            <h5 class="text-white text-center text-white">Deposit</h5>
                             <h2 class="text-white text-center">৳<span id="showDeposit">00 </span></h2>
                         </div>
                         </div>
                         <div class="col-md-4 ">
                             <div class="withdraw status">
-                            <h5 class="text-white text-center">Withdraw</h5>
+                            <h5 class="text-white text-center text-white">Withdraw</h5>
                             <h2 class="text-white text-center">৳<span id="showWithdraw"> 50 </span></h2>
                         </div>
                         </div>
                         <div class="col-md-4 ">
                             <div class="balance status">
-                            <h5 class="text-white text-center">Balance</h5>
+                            <h5 class="text-white text-center text-white">Balance</h5>
                             <h2 class="text-white text-center">৳<span id="showBalance">500 </span></h2>
                         </div>
                         </div>
@@ -55,20 +55,101 @@
 
             <div class="row">
                 <div class="col-md-6 transaction">
-                    <h4>Deposit</h4>
-                    <input type="text" id="depositAmount" class="form-control" placeholder="deposit your amount">
+                    <h4 class="text-white">Deposit</h4>
+                    <input type="number" required="" min="1" id="depositAmount" class="form-control" placeholder="deposit your amount">
                     <button id="depositTK" class="btn btn-success">Submit</button>
                 </div>
                 <div class="col-md-6 transaction">
-                    <h4>Withdraw</h4>
-                    <input type="text" class="form-control" id="withDrawAmount" placeholder="withdraw your amount">
+                    <h4 class="text-white">Withdraw</h4>
+                    <input type="number" class="form-control" min="1" id="withDrawAmount" required="" placeholder="withdraw your amount">
                     <button id="withdrawtk" class="btn btn-success">Submit</button>
                 </div>
             </div>
         </div>
 
         
-        <script src="main.js"></script>
+        <!-- <script src="main.js"></script> -->
+        <script>
+
+
+
+            const  loginBtn =document.getElementById("login");
+            loginBtn.addEventListener("click",function(){
+
+                const loginForm =document.getElementById("login-form");
+                loginForm.style.display ="none";
+
+                const transaction =document.getElementById("transaction-area");
+                transaction.style.display ="block";
+
+            
+
+            });
+
+            //addEvent for deposit
+
+            const depositBtn =document.getElementById("depositTK");
+                depositBtn.addEventListener("click",function(){
+                 //   alert('ok');
+
+
+                    //take value from deposit input
+                    const depositAll = document.getElementById("depositAmount").value;
+                    const depositNumber = parseFloat(depositAll);
+
+                    // show this total in innerHtml
+
+                    updateSpan("showDeposit",depositNumber);
+                    updateSpan("showBalance",depositNumber);
+
+                    //empty the input field
+                    document.getElementById("depositAmount").value ="";
+                    
+            });
+
+            //deposit & savings in same tim
+
+
+
+            const withdrawBtn =document.getElementById("withdrawtk");
+            withdrawBtn.addEventListener("click",function(){
+              //  console.log('ok');
+
+                const withDrawAll =document.getElementById("withDrawAmount").value;
+                const withDrawNumber =parseFloat(withDrawAll);
+                const showWithdraws =document.getElementById("showWithdraw").innerText;
+                const withDrawAmounts =parseFloat(showWithdraws);
+                const totalWithdraw = withDrawNumber + withDrawAmounts;
+              //  alert(totalWithdraw);
+                document.getElementById("showWithdraw").innerText =totalWithdraw;
+
+                const showBalance =document.getElementById("showBalance").innerText;
+                const balanceNumber =parseFloat(showBalance);
+                const reduceBalance =balanceNumber -withDrawNumber;
+                document.getElementById("showBalance").innerText =reduceBalance;
+                
+
+                document.getElementById("withDrawAmount").value="";
+
+            });
+
+                function updateSpan(id,depositNumber){
+
+                const showBalance =document.getElementById(id).innerText;
+                const balanceNo = parseFloat(showBalance);
+                const totalBalance = depositNumber + balanceNo;
+                document.getElementById(id).innerText = totalBalance;
+                }
+
+                // function reduceSpan(id,withDrawNumber){
+
+                //     const showBalance =document.getElementById()
+                // }
+
+               
+
+
+        </script>
        
     
 </body>
